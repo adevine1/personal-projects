@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
+    <title>Get Five!</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+    <script src="src/app.js"></script>
+  </head>
+  <body style = "font-family: 'Literata', serif;" onload="loadStuff()">
+    <h1 style = "text-align: center">Get Five!</h1>
+    <div class = "instructions">
+      <p>
+        <br>
+        <b>Get Five!</b> is a solitaire version of a popular dice game (ok, it's Yahtzee)
+        using five six-sided dice: <br><br>
+        <img src="assets/Dice-1-b.svg" width="33" height="33">
+        <img src="assets/Dice-2-b.svg" width="33" height="33">
+        <img src="assets/Dice-3-b.svg" width="33" height="33">
+        <img src="assets/Dice-4-b.svg" width="33" height="33">
+        <img src="assets/Dice-5-b.svg" width="33" height="33">
+        <img src="assets/Dice-6a-b.svg" width="33" height="33">
+      </p>
+      <p></p>
+      <p>
+        The objective is to score as many points as possible in thirteen different
+        categories within turns of three rolls.
+      </p>
+
+      <p>Click "Roll" to begin. Click on dice to hold (or un-hold) them over to the next roll within a turn. Click on ← to commit a score after any roll.</p>
+      <p>Scroll down to see detailed rules and high scores.</p>
+      <hr>
+      <p>Reset game here: <button onclick = "resetgame ()">reset game</button>. Toggle sound effects here: <button id="effects" onclick = "toggleSoundEffects ()">effects off</button>. <br><br> Show score history here: <button onclick="showHighScores ()">show score history</button>.
+      Clear score history here: <button onclick = "clearScoreHistory ()">clear score history</button> <br><br>
+      <button>credits</button>
+    </p>
+      <br>
+
+   </div>
+
+   <div id= "wrap" class = "playfield">
+    <div class = "right" >
+    <br><br>
+    <table id="top" class="top" style= "padding: 20px">
+      <tr onclick = "submitValue (this)">
+        <td>ones</td>
+        <td style= "text-align: center"></td>
+        <td id= "r1"></td>
+      </tr>
+      <tr onclick = "submitValue (this)">
+        <td>twos</td>
+        <td style= "text-align: center"></td>
+        <td id= "r2"></td>
+      </tr>
+      <tr onclick = "submitValue (this)">
+        <td>threes</td>
+        <td style= "text-align: center"></td>
+        <td id = "r3"></td>
+      </tr>
+      <tr onclick = "submitValue (this)">
+        <td>fours</td>
+        <td style= "text-align: center"></td>
+        <td id = "r4"></td>
+      </tr>
+      <tr onclick = "submitValue (this)">
+        <td>fives</td>
+        <td style= "text-align: center"></td>
+        <td></td>
+      </tr>
+      <tr onclick = "submitValue (this)">
+        <td>sixes</td>
+        <td style= "text-align: center"></td>
+        <td></td>
+      </tr>
+    </table>
+    <br>
+    <table id= "bonus" class="bonus">
+      <tr>
+        <td>subtotal</td>
+        <td style= "text-align: center; font-weight: bold;">0</td>
+      </tr>
+      <tr>
+        <td>bonus</td>
+        <td style= "text-align: center; font-weight: bold;">0</td>
+      </tr>
+    </table>
+    <br>
+    <table id="bottom" class="bottom">
+      <tr onclick = "submitValueBottom (this)">
+        <td>3 of a kind</td>
+        <td style= "text-align: center"></td>
+        <td></td>
+      </tr>
+      <tr onclick = "submitValueBottom (this)">
+        <td>4 of a kind</td>
+        <td style= "text-align: center"></td>
+        <td></td>
+      </tr>
+      <tr onclick = "submitValueBottom (this)">
+        <td>full house</td>
+        <td style= "text-align: center"></td>
+        <td></td>
+      </tr>
+      <tr onclick = "submitValueBottom (this)">
+        <td>sm. straight</td>
+        <td style= "text-align: center"></td>
+        <td></td>
+      </tr>
+      <tr onclick = "submitValueBottom (this)">
+        <td>lrg. straight</td>
+        <td style= "text-align: center"></td>
+        <td></td>
+      </tr>
+      <tr onclick = "submitValueBottom (this)">
+        <td>Five!</td>
+        <td style= "text-align: center"></td>
+        <td></td>
+      </tr>
+      <tr onclick = "submitValueBottom (this)">
+        <td>chance</td>
+        <td style= "text-align: center"></td>
+        <td></td>
+      </tr>
+    </table>
+
+    <br>
+
+    <table id ="bonus2" class="bonus2">
+      <tr onclick = "submitValueBonusChips (this)">
+        <td>bonus chips</td>
+        <td style= "text-align: center; font-weight: bold;"></td>
+        <td></td>
+      </tr>
+    </table>
+    <br>
+    <table id = "grandtotal" class="grandtotal">
+      <tr>
+        <td>grand total</td>
+        <td style= "text-align: center; font-weight: bold;">0</td>
+      </tr>
+    </table>
+    <br><br><br>
+  </div>
+
+<div class = "left">
+ <table id = "dicedisplay">
+   <tr>
+     <td><p style="color: white" class = "button" id="d1" onclick="diceClick (this)"><img src="assets/Dice-0.svg" width=63 height=63></p></td>
+   <td><p style="color: white" class = "button" id="d2" onclick="diceClick (this)"><img src="assets/Dice-0.svg" width=63 height=63></p></td>
+   <td><p style="color: white" class = "button" id="d3" onclick="diceClick (this)"><img src="assets/Dice-0.svg" width=63 height=63></p></td>
+   <td><p style="color: white" class = "button" id="d4" onclick="diceClick (this)"><img src="assets/Dice-0.svg" width=63 height=63></p></td>
+   <td><p style="color: white" class = "button" id="d5" onclick="diceClick (this)"><img src="assets/Dice-0.svg" width=63 height=63></p></td>
+   </tr>
+ </table>
+
+    <button class="roll" id= "rollerbutton" onclick="rollTheDice()">Roll</button>
+    <br>
+    <button class ="fakeybutton" id="fb1">➀ ➁ ➂</button>
+    <br>
+    <button class ="fakeybutton" id="fb2">Roll Dice to Start Game</button>
+    <p id = "rollinstruction" style="font-size: 40px"></p>
+    <div style="text-align: center;">
+      <img id="dice" src= "assets/dice-not-rolled.jpg" style="width:40%;height:40%;">
+      <img id="rolled" src="assets/dice-rolled.jpg" style="width:50%;height:50%;display:none">
+   </div>
+
+  </div>
+
+</div>
+
+<div class = "instructions">
+      <b>Scoring</b><br>
+
+      Scoring in Get Five! occurs on successful rolls for categories in either the
+      upper or the lower scoring areas.<br><br>
+
+      <b><u>The Upper Scoring Area</b></u><br>
+      In the upper scoring area, dice that fall into a particular
+      number category are added together. For example, consider the following roll: 
+      <br><br>
+
+        <img src="assets/Dice-5-b.svg" width="33" height="33">
+        <img src="assets/Dice-5-b.svg" width="33" height="33">
+        <img src="assets/Dice-2-b.svg" width="33" height="33">
+        <img src="assets/Dice-1-b.svg" width="33" height="33">
+        <img src="assets/Dice-5-b.svg" width="33" height="33">
+
+      <br><br>
+
+      Here, scoring can occur in the ones, twos, or fives categories. (Only one category can be scored per turn.) A score in the fives
+      category would total 15 (5+5+5). A score in the twos cateogry would score
+      2 points, a score in the ones category would score 1 point, and any other
+      number category would score 0. A bonus of 35 points is given if the upper
+      scoring area totals 63 or more points (an average of three scored dice in
+      each category).<br><br>
+
+      <b><u>The Lower Scoring Area</u></b><br>
+      In the lower scoring area, scores
+      are determined by particular dice combinations for the following
+      categories.<br><br>
+
+      <i>3 and 4 of a Kind</i><br>
+      Scoring is available for 3 or 4 of a kind if you roll three or four dice that are identical. In each case, the scoring is equal to the total number of dice
+      shown. So the roll
+
+      <br><br>
+
+        <img src="assets/Dice-1-b.svg" width="33" height="33">
+        <img src="assets/Dice-3-b.svg" width="33" height="33">
+        <img src="assets/Dice-3-b.svg" width="33" height="33">
+        <img src="assets/Dice-3-b.svg" width="33" height="33">
+        <img src="assets/Dice-5-b.svg" width="33" height="33">
+
+      <br><br>
+
+      would score 15 points (1+3+3+3+5) in the
+      3 of a kind category. The roll
+
+      <br><br>
+
+        <img src="assets/Dice-4-b.svg" width="33" height="33">
+        <img src="assets/Dice-4-b.svg" width="33" height="33">
+        <img src="assets/Dice-4-b.svg" width="33" height="33">
+        <img src="assets/Dice-4-b.svg" width="33" height="33">
+        <img src="assets/Dice-2-b.svg" width="33" height="33">
+
+      <br><br>
+
+      would score 14 (4+4+4+4+2) in
+      the 3 or 4 of a kind category.<br><br>
+
+      <i>Small and Large Straight</i><br>
+      A staight is a sequence of consecutive die numbers. Rolling a small straight is
+      worth 30 points, and rolling a large straight is worth 40.<br><br>
+
+      Examples of a
+      small straight:
+
+      <br><br>
+
+        <img src="assets/Dice-2-b.svg" width="33" height="33">
+        <img src="assets/Dice-3-b.svg" width="33" height="33">
+        <img src="assets/Dice-1-b.svg" width="33" height="33">
+        <img src="assets/Dice-4-b.svg" width="33" height="33">
+        <img src="assets/Dice-1-b.svg" width="33" height="33">
+
+      <br><br>
+
+        <img src="assets/Dice-4-b.svg" width="33" height="33">
+        <img src="assets/Dice-5-b.svg" width="33" height="33">
+        <img src="assets/Dice-1-b.svg" width="33" height="33">
+        <img src="assets/Dice-3-b.svg" width="33" height="33">
+        <img src="assets/Dice-6a-b.svg" width="33" height="33">
+
+      <br><br>
+
+      Examples of a large straight:
+
+      <br><br>
+
+        <img src="assets/Dice-1-b.svg" width="33" height="33">
+        <img src="assets/Dice-2-b.svg" width="33" height="33">
+        <img src="assets/Dice-3-b.svg" width="33" height="33">
+        <img src="assets/Dice-4-b.svg" width="33" height="33">
+        <img src="assets/Dice-5-b.svg" width="33" height="33">
+
+      <br><br>
+
+        <img src="assets/Dice-3-b.svg" width="33" height="33">
+        <img src="assets/Dice-5-b.svg" width="33" height="33">
+        <img src="assets/Dice-2-b.svg" width="33" height="33">
+        <img src="assets/Dice-6a-b.svg" width="33" height="33">
+        <img src="assets/Dice-4-b.svg" width="33" height="33">
+
+      <br><br>
+
+      A large straight can be scored as either a large or a
+      small straight.<br><br>
+
+      <i>Full House</i><br>
+      A full house is when a roll contains three of
+      one value and two of another.<br><br>
+
+      Examples:
+
+      <br><br>
+
+        <img src="assets/Dice-2-b.svg" width="33" height="33">
+        <img src="assets/Dice-2-b.svg" width="33" height="33">
+        <img src="assets/Dice-3-b.svg" width="33" height="33">
+        <img src="assets/Dice-2-b.svg" width="33" height="33">
+        <img src="assets/Dice-3-b.svg" width="33" height="33">
+
+      <br><br>
+
+      <img src="assets/Dice-1-b.svg" width="33" height="33">
+      <img src="assets/Dice-1-b.svg" width="33" height="33">
+      <img src="assets/Dice-5-b.svg" width="33" height="33">
+      <img src="assets/Dice-5-b.svg" width="33" height="33">
+      <img src="assets/Dice-1-b.svg" width="33" height="33">
+
+      <br><br>
+
+      <img src="assets/Dice-6a-b.svg" width="33" height="33">
+      <img src="assets/Dice-6a-b.svg" width="33" height="33">
+      <img src="assets/Dice-6a-b.svg" width="33" height="33">
+      <img src="assets/Dice-4-b.svg" width="33" height="33">
+      <img src="assets/Dice-4-b.svg" width="33" height="33">
+
+    <br><br>
+
+      A full house scores 25 points.<br><br>
+
+      <i>Five!</i><br>
+      Scoring a Five! is when all five dice rolled
+      show the same value.<br><br>
+      Example:
+
+      <br><br>
+
+        <img src="assets/Dice-6a-b.svg" width="33" height="33">
+        <img src="assets/Dice-6a-b.svg" width="33" height="33">
+        <img src="assets/Dice-6a-b.svg" width="33" height="33">
+        <img src="assets/Dice-6a-b.svg" width="33" height="33">
+        <img src="assets/Dice-6a-b.svg" width="33" height="33">
+
+      <br><br>
+
+      Rolling a Five! is worth 50
+      points.  However, each consecutive Five! scored after the initial one is
+      worth a bonus chip of 100 points. You won't receive a bonus if you have
+      not already scored 50 for a Five!, or if the Five! category has already
+      been scored with a 0.<br><br>
+
+      <i>Chance</i><br>
+      The chance category is scored by adding up
+      all five dice.  The dice can be in any combination.
+    </p>
+    <br>
+</div>
+  </body>
+
+
+</html>
