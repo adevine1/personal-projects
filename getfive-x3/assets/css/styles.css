@@ -1,0 +1,240 @@
+#wrap {
+  width: 720px;
+  height: 800px;
+}
+
+.left {
+  width: 380px;
+  height: 800px;
+  float: left;
+}
+
+.right {
+  width: 340px;
+  height: 800px;
+  float: right;
+}
+
+table.top {
+  background-color:white;
+  border-collapse: collapse;
+  border: solid 3px;
+}
+
+table.top td {
+  border: 1px solid black;
+  padding: 5px;
+  width: 95px;
+  height: 20px;
+  cursor: pointer;
+}
+
+table.bonus {
+  background-color: transparent;
+  border-collapse: collapse;
+  border: solid 3px;
+}
+
+table.bonus td {
+  border: 1px solid black;
+  padding: 5px;
+  width: 95px;
+  height: 20px;
+}
+
+table.bottom {
+  background-color: transparent;
+  border-collapse: collapse;
+  border: solid 3px;
+}
+
+table.bottom td {
+  border: 1px solid black;
+  padding: 5px;
+  width: 95px;
+  height: 20px;
+  cursor: pointer;
+}
+
+table.bonus2 {
+  background-color: transparent;
+  border-collapse: collapse;
+  border: solid 3px;
+}
+
+table.bonus2 td {
+  border: 1px solid black;
+  padding: 5px;
+  width: 95px;
+  height: 20px;
+  cursor: pointer;
+}
+
+table.grandtotal {
+  background-color: transparent;
+  border-collapse: collapse;
+  border: solid 3px;
+}
+
+table.grandtotal td {
+  border: 1px solid black;
+  padding: 5px;
+  width: 95px;
+  height: 20px;
+}
+
+table.highscoretable {
+  background-color: transparent;
+  border-collapse: collapse;
+  border: solid 3px;
+  width: 100%;
+  padding: 100px
+}
+
+table.highscoretable tr, th {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 10px;
+  font-size: 22px;
+}
+
+table.showeachrecord {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 40px;
+  margin: 40px;
+}
+
+.button {
+  background-color: white;
+  color: black;
+  border: 1px;
+  margin: 20;
+  padding: 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 85px;
+  cursor: pointer;
+}
+
+.roll:hover:enabled {
+  background-color: #2E76CF
+}
+
+.roll {
+  background-color: #173b67;
+  border: 3px;
+  border-color: lightsteelblue;
+  color: yellow;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 317px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.count {
+  font-size: 8;
+}
+
+.die {
+  font-size: 110;
+}
+
+.fakeybutton {
+  background-color: transparent;
+  text-align: center;
+  width: 317px;
+  border: 1px;
+  padding: 0px;
+  border: none;
+  font-size: 28px;
+  margin: 20px
+}
+
+#fb2 {
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 317px;
+  font-size: 18px;
+}
+
+.highscores {
+  display: block;
+  padding: 20px;
+  background-color: transparent;
+  border: 3px solid black;
+  margin: 20px;
+}
+
+.instructions {
+  display: block;
+  margin-top: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 3px solid gray;
+  box-shadow: 0 6px 6px #ccc;
+  padding: 20px;
+  background-color: white;
+}
+
+.playfield {
+  display: block;
+  margin-top: 80px;
+  margin-left: 20px;
+  border: 3px solid gray;
+  box-shadow: 0 6px 6px #ccc;
+  padding: 20px;
+  background-color: white;
+}
+
+#dicedisplay {
+  padding: 12px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li:hover {
+  color: yellow;
+}
+
+#mainmenu {
+  position: fixed;
+  width: 99%;
+  top: 1em;
+  margin-right: 1px;
+  margin-right: 1px;
+}
+
+#highscores {
+  display: block;
+  margin-top: 80px;
+  margin-left: 20px;
+  width: 1000px;
+  border: 3px solid gray;
+  box-shadow: 0 6px 6px #ccc;
+  padding: 20px;
+  background-color: white;
+}

@@ -1,0 +1,1 @@
+this is a variante of Get Five! (which is a clone of Yahtzee) that is likewise a clone of Triple Yahtzee. It plays the same, except that there are columns for single, double, and triple the rolled scores that can be played at the player's discretion. The final score adds all three columns together.
