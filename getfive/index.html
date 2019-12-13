@@ -4,40 +4,23 @@
     <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
     <title>Get Five!</title>
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="src/app.js"></script>
   </head>
   <body style = "font-family: 'Literata', serif;" onload="loadStuff()">
-    <h1 style = "text-align: center">Get Five!</h1>
-    <div class = "instructions">
-      <p>
-        <br>
-        <b>Get Five!</b> is a solitaire version of a popular dice game (ok, it's Yahtzee)
-        using five six-sided dice: <br><br>
-        <img src="assets/Dice-1-b.svg" width="33" height="33">
-        <img src="assets/Dice-2-b.svg" width="33" height="33">
-        <img src="assets/Dice-3-b.svg" width="33" height="33">
-        <img src="assets/Dice-4-b.svg" width="33" height="33">
-        <img src="assets/Dice-5-b.svg" width="33" height="33">
-        <img src="assets/Dice-6a-b.svg" width="33" height="33">
-      </p>
-      <p></p>
-      <p>
-        The objective is to score as many points as possible in thirteen different
-        categories within turns of three rolls.
-      </p>
 
-      <p>Click "Roll" to begin. Click on dice to hold (or un-hold) them over to the next roll within a turn. Click on ← to commit a score after any roll.</p>
-      <p>Scroll down to see detailed rules and high scores.</p>
-      <hr>
-      <p>Reset game here: <button onclick = "resetgame ()">reset game</button>. Toggle sound effects here: <button id="effects" onclick = "toggleSoundEffects ()">effects off</button>. <br><br> Show score history here: <button onclick="showHighScores ()">show score history</button>.
-      Clear score history here: <button onclick = "clearScoreHistory ()">clear score history</button> <br><br>
-      <button>credits</button>
-    </p>
-      <br>
+      <ul id="mainmenu">
+          <li id="hideintro" onclick="jumpToInstructions ()">Get Five! Instructions (show)</li>
+          <li onclick="toggleSoundEffects ()" id="effects">Sound Effects (off)</li>
+          <li id="showhighscores" onclick="showHighScores ()">Show Score History</li>
+          <li id = "resetscores" onclick="clearScoreHistory ()">Reset Scores</li>
+          <li id = "resetgame" onclick="resetgame ()">Reset Current Game</li>
+          <li id = "credits" style="float:right">Credits</a></li>
+      </ul>
 
-   </div>
 
-   <div id= "wrap" class = "playfield">
+<div id= "wrap" class = "playfield">
+
     <div class = "right" >
     <br><br>
     <table id="top" class="top" style= "padding: 20px">
@@ -144,11 +127,11 @@
 <div class = "left">
  <table id = "dicedisplay">
    <tr>
-     <td><p style="color: white" class = "button" id="d1" onclick="diceClick (this)"><img src="assets/Dice-0.svg" width=63 height=63></p></td>
-   <td><p style="color: white" class = "button" id="d2" onclick="diceClick (this)"><img src="assets/Dice-0.svg" width=63 height=63></p></td>
-   <td><p style="color: white" class = "button" id="d3" onclick="diceClick (this)"><img src="assets/Dice-0.svg" width=63 height=63></p></td>
-   <td><p style="color: white" class = "button" id="d4" onclick="diceClick (this)"><img src="assets/Dice-0.svg" width=63 height=63></p></td>
-   <td><p style="color: white" class = "button" id="d5" onclick="diceClick (this)"><img src="assets/Dice-0.svg" width=63 height=63></p></td>
+     <td><p style="color: white" class = "button" id="d1" onclick="diceClick (this)"><img src="assets/Dice-0.png" width=63 height=63></p></td>
+   <td><p style="color: white" class = "button" id="d2" onclick="diceClick (this)"><img src="assets/Dice-0.png" width=63 height=63></p></td>
+   <td><p style="color: white" class = "button" id="d3" onclick="diceClick (this)"><img src="assets/Dice-0.png" width=63 height=63></p></td>
+   <td><p style="color: white" class = "button" id="d4" onclick="diceClick (this)"><img src="assets/Dice-0.png" width=63 height=63></p></td>
+   <td><p style="color: white" class = "button" id="d5" onclick="diceClick (this)"><img src="assets/Dice-0.png" width=63 height=63></p></td>
    </tr>
  </table>
 
@@ -156,18 +139,38 @@
     <br>
     <button class ="fakeybutton" id="fb1">➀ ➁ ➂</button>
     <br>
-    <button class ="fakeybutton" id="fb2">Roll Dice to Start Game</button>
+    <button class ="fakeybutton" id="fb2" onclick="resetgame ()" style = "color: black" disabled>Roll Dice to Start Game</button>
     <p id = "rollinstruction" style="font-size: 40px"></p>
     <div style="text-align: center;">
-      <img id="dice" src= "assets/dice-not-rolled.jpg" style="width:40%;height:40%;">
-      <img id="rolled" src="assets/dice-rolled.jpg" style="width:50%;height:50%;display:none">
+      <img id="dice" src= "assets/dice-not-rolled.jpg" style="width:70%;height:70%;">
+      <img id="rolled" src="assets/roll.jpg" style="width:40%;height:40%;display:none">
    </div>
 
   </div>
 
 </div>
 
-<div class = "instructions">
+<div class = "instructions" id="hideintro">
+    <p>
+      <br>
+      <h3 style="text-align: center">Get Five! Instructions</h3>
+      <b>Get Five!</b> is a solitaire version of a popular dice game (ok, it's Yahtzee)
+      using five six-sided dice: <br><br>
+      <img src="assets/Dice-1.png" width="33" height="33">
+      <img src="assets/Dice-2.png" width="33" height="33">
+      <img src="assets/Dice-3.png" width="33" height="33">
+      <img src="assets/Dice-4.png" width="33" height="33">
+      <img src="assets/Dice-5.png" width="33" height="33">
+      <img src="assets/Dice-6.png" width="33" height="33">
+    </p>
+    <p></p>
+    <p>
+      The objective is to score as many points as possible in thirteen different
+      categories within turns of three rolls.
+    <br>
+
+    <p>Click "Roll" to begin. Click on dice to hold (or un-hold) them over to the next roll within a turn. Click on ← to commit a score after any roll.</p>
+
       <b>Scoring</b><br>
 
       Scoring in Get Five! occurs on successful rolls for categories in either the
@@ -178,11 +181,11 @@
       number category are added together. For example, consider the following roll: 
       <br><br>
 
-        <img src="assets/Dice-5-b.svg" width="33" height="33">
-        <img src="assets/Dice-5-b.svg" width="33" height="33">
-        <img src="assets/Dice-2-b.svg" width="33" height="33">
-        <img src="assets/Dice-1-b.svg" width="33" height="33">
-        <img src="assets/Dice-5-b.svg" width="33" height="33">
+        <img src="assets/Dice-5.png" width="33" height="33">
+        <img src="assets/Dice-5.png" width="33" height="33">
+        <img src="assets/Dice-2.png" width="33" height="33">
+        <img src="assets/Dice-1.png" width="33" height="33">
+        <img src="assets/Dice-5.png" width="33" height="33">
 
       <br><br>
 
@@ -204,11 +207,11 @@
 
       <br><br>
 
-        <img src="assets/Dice-1-b.svg" width="33" height="33">
-        <img src="assets/Dice-3-b.svg" width="33" height="33">
-        <img src="assets/Dice-3-b.svg" width="33" height="33">
-        <img src="assets/Dice-3-b.svg" width="33" height="33">
-        <img src="assets/Dice-5-b.svg" width="33" height="33">
+        <img src="assets/Dice-1.png" width="33" height="33">
+        <img src="assets/Dice-3.png" width="33" height="33">
+        <img src="assets/Dice-3.png" width="33" height="33">
+        <img src="assets/Dice-3.png" width="33" height="33">
+        <img src="assets/Dice-5.png" width="33" height="33">
 
       <br><br>
 
@@ -217,11 +220,11 @@
 
       <br><br>
 
-        <img src="assets/Dice-4-b.svg" width="33" height="33">
-        <img src="assets/Dice-4-b.svg" width="33" height="33">
-        <img src="assets/Dice-4-b.svg" width="33" height="33">
-        <img src="assets/Dice-4-b.svg" width="33" height="33">
-        <img src="assets/Dice-2-b.svg" width="33" height="33">
+        <img src="assets/Dice-4.png" width="33" height="33">
+        <img src="assets/Dice-4.png" width="33" height="33">
+        <img src="assets/Dice-4.png" width="33" height="33">
+        <img src="assets/Dice-4.png" width="33" height="33">
+        <img src="assets/Dice-2.png" width="33" height="33">
 
       <br><br>
 
@@ -237,19 +240,19 @@
 
       <br><br>
 
-        <img src="assets/Dice-2-b.svg" width="33" height="33">
-        <img src="assets/Dice-3-b.svg" width="33" height="33">
-        <img src="assets/Dice-1-b.svg" width="33" height="33">
-        <img src="assets/Dice-4-b.svg" width="33" height="33">
-        <img src="assets/Dice-1-b.svg" width="33" height="33">
+        <img src="assets/Dice-2.png" width="33" height="33">
+        <img src="assets/Dice-3.png" width="33" height="33">
+        <img src="assets/Dice-1.png" width="33" height="33">
+        <img src="assets/Dice-4.png" width="33" height="33">
+        <img src="assets/Dice-1.png" width="33" height="33">
 
       <br><br>
 
-        <img src="assets/Dice-4-b.svg" width="33" height="33">
-        <img src="assets/Dice-5-b.svg" width="33" height="33">
-        <img src="assets/Dice-1-b.svg" width="33" height="33">
-        <img src="assets/Dice-3-b.svg" width="33" height="33">
-        <img src="assets/Dice-6a-b.svg" width="33" height="33">
+        <img src="assets/Dice-4.png" width="33" height="33">
+        <img src="assets/Dice-5.png" width="33" height="33">
+        <img src="assets/Dice-1.png" width="33" height="33">
+        <img src="assets/Dice-3.png" width="33" height="33">
+        <img src="assets/Dice-6.png" width="33" height="33">
 
       <br><br>
 
@@ -257,19 +260,19 @@
 
       <br><br>
 
-        <img src="assets/Dice-1-b.svg" width="33" height="33">
-        <img src="assets/Dice-2-b.svg" width="33" height="33">
-        <img src="assets/Dice-3-b.svg" width="33" height="33">
-        <img src="assets/Dice-4-b.svg" width="33" height="33">
-        <img src="assets/Dice-5-b.svg" width="33" height="33">
+        <img src="assets/Dice-1.png" width="33" height="33">
+        <img src="assets/Dice-2.png" width="33" height="33">
+        <img src="assets/Dice-3.png" width="33" height="33">
+        <img src="assets/Dice-4.png" width="33" height="33">
+        <img src="assets/Dice-5.png" width="33" height="33">
 
       <br><br>
 
-        <img src="assets/Dice-3-b.svg" width="33" height="33">
-        <img src="assets/Dice-5-b.svg" width="33" height="33">
-        <img src="assets/Dice-2-b.svg" width="33" height="33">
-        <img src="assets/Dice-6a-b.svg" width="33" height="33">
-        <img src="assets/Dice-4-b.svg" width="33" height="33">
+        <img src="assets/Dice-3.png" width="33" height="33">
+        <img src="assets/Dice-5.png" width="33" height="33">
+        <img src="assets/Dice-2.png" width="33" height="33">
+        <img src="assets/Dice-6.png" width="33" height="33">
+        <img src="assets/Dice-4.png" width="33" height="33">
 
       <br><br>
 
@@ -284,27 +287,27 @@
 
       <br><br>
 
-        <img src="assets/Dice-2-b.svg" width="33" height="33">
-        <img src="assets/Dice-2-b.svg" width="33" height="33">
-        <img src="assets/Dice-3-b.svg" width="33" height="33">
-        <img src="assets/Dice-2-b.svg" width="33" height="33">
-        <img src="assets/Dice-3-b.svg" width="33" height="33">
+        <img src="assets/Dice-2.png" width="33" height="33">
+        <img src="assets/Dice-2.png" width="33" height="33">
+        <img src="assets/Dice-3.png" width="33" height="33">
+        <img src="assets/Dice-2.png" width="33" height="33">
+        <img src="assets/Dice-3.png" width="33" height="33">
 
       <br><br>
 
-      <img src="assets/Dice-1-b.svg" width="33" height="33">
-      <img src="assets/Dice-1-b.svg" width="33" height="33">
-      <img src="assets/Dice-5-b.svg" width="33" height="33">
-      <img src="assets/Dice-5-b.svg" width="33" height="33">
-      <img src="assets/Dice-1-b.svg" width="33" height="33">
+      <img src="assets/Dice-1.png" width="33" height="33">
+      <img src="assets/Dice-1.png" width="33" height="33">
+      <img src="assets/Dice-5.png" width="33" height="33">
+      <img src="assets/Dice-5.png" width="33" height="33">
+      <img src="assets/Dice-1.png" width="33" height="33">
 
       <br><br>
 
-      <img src="assets/Dice-6a-b.svg" width="33" height="33">
-      <img src="assets/Dice-6a-b.svg" width="33" height="33">
-      <img src="assets/Dice-6a-b.svg" width="33" height="33">
-      <img src="assets/Dice-4-b.svg" width="33" height="33">
-      <img src="assets/Dice-4-b.svg" width="33" height="33">
+      <img src="assets/Dice-6.png" width="33" height="33">
+      <img src="assets/Dice-6.png" width="33" height="33">
+      <img src="assets/Dice-6.png" width="33" height="33">
+      <img src="assets/Dice-4.png" width="33" height="33">
+      <img src="assets/Dice-4.png" width="33" height="33">
 
     <br><br>
 
@@ -317,11 +320,11 @@
 
       <br><br>
 
-        <img src="assets/Dice-6a-b.svg" width="33" height="33">
-        <img src="assets/Dice-6a-b.svg" width="33" height="33">
-        <img src="assets/Dice-6a-b.svg" width="33" height="33">
-        <img src="assets/Dice-6a-b.svg" width="33" height="33">
-        <img src="assets/Dice-6a-b.svg" width="33" height="33">
+        <img src="assets/Dice-6.png" width="33" height="33">
+        <img src="assets/Dice-6.png" width="33" height="33">
+        <img src="assets/Dice-6.png" width="33" height="33">
+        <img src="assets/Dice-6.png" width="33" height="33">
+        <img src="assets/Dice-6.png" width="33" height="33">
 
       <br><br>
 
@@ -336,8 +339,24 @@
       all five dice.  The dice can be in any combination.
     </p>
     <br>
+    <button onclick="secretMessage ()">hidden message</button>
 </div>
-  </body>
+
+<div id="highscores">
+  <h2 style="text-align: center">High Scores</h2>
+
+  <table class="highscoretable" id="showeachrecord">
+
+      <h2 style="text-align: center" id="footsteps">Your footsteps echo through an empty Hall of Records, inspiring you to action.</h2>
+
+
+  </table>
+
+  <h2 style="text-align: center" id="footsteps">Your footsteps echo through a sparse Hall of Records, inspiring you to action.</h2>
+
+</div>
+
+</body>
 
 
 </html>
