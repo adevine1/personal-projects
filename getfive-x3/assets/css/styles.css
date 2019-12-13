@@ -1,17 +1,17 @@
 #wrap {
-  width: 1000px;
-  height: 800px;
+  width: 1100px;
+  height: 850px;
 }
 
 .left {
   width: 380px;
-  height: 800px;
+  height: 850px;
   float: left;
 }
 
 .right {
-  width: 620px;
-  height: 800px;
+  width: 720px;
+  height: 850px;
   float: right;
 }
 
