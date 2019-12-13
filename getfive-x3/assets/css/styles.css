@@ -1,5 +1,5 @@
 #wrap {
-  width: 720px;
+  width: 1000px;
   height: 800px;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .right {
-  width: 340px;
+  width: 620px;
   height: 800px;
   float: right;
 }
