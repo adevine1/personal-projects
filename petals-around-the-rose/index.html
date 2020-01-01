@@ -4,11 +4,12 @@
 <!-- head contains information about the DOM (document object model) -->
 
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
   <title>Petals Around the Rose</title>
   <style type="text/css">
     .container {
       width: 750px;
-      border: solid 2px gray;
+      border: solid 1px gray;
       text-align: center;
       box-shadow: 0 6px 6px #ccc;
     }
@@ -34,53 +35,38 @@
 
     .enter {
       width: 300px;
-      font-size: 14px;
+      font-size: 10px;
 
     }
 
     .submit {
-      background-color: #173b67;
-      border: 3px;
-      border-color: lightsteelblue;
-      color: yellow;
-      padding: 5px 5px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      width: 150px;
-      font-size: 12px;
-      cursor: pointer;
-      margin: 10px;
+
     }
-
-
-
   </style>
 </head>
 
 
 <!-- body contains actual content -->
 
-<body>
+<body style = "font-family: 'Literata', serif;">
 
 <div class="container">
   <p class="title">Petals Around the Rose</p>
   <br>
-  <img src="assets/Dice-0.png" width=63 height=63>
-  <img src="assets/Dice-0.png" width=63 height=63>
-  <img src="assets/Dice-0.png" width=63 height=63>
-  <img src="assets/Dice-0.png" width=63 height=63>
-  <img src="assets/Dice-0.png" width=63 height=63>
-  <img src="assets/Dice-0.png" width=63 height=63>
+  <img id="d1" src="assets/Dice-0.png" width=63 height=63 >
+  <img id="d2" src="assets/Dice-0.png" width=63 height=63>
+  <img id="d3" src="assets/Dice-0.png" width=63 height=63>
+  <img id="d4" src="assets/Dice-0.png" width=63 height=63>
+  <img id="d5" src="assets/Dice-0.png" width=63 height=63>
+  <img id="d6" src="assets/Dice-0.png" width=63 height=63>
   <br><br>
-  <button class="roll">Play Game</button>
+  <button class="roll">Roll Dice</button>
   <br><br>
-  <input class="enter" type="text">
-  <button class="submit">enter guess</button>
+  <input class="enter" type="text" placeholder="enter guess here" disabled>
+  <button class="submit" disabled>enter guess</button>
+  <br><br><br><br>
   <br><br>
 </div>
-
-
 
 </body>
 
