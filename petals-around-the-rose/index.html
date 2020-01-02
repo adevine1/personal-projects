@@ -7,9 +7,12 @@
   <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
   <title>Petals Around the Rose</title>
   <style type="text/css">
+
     .container {
+
       width: 750px;
-      border: solid 1gipx gray;
+      margin: 0 auto;
+      border: solid 1px gray;
       text-align: center;
       box-shadow: 0 6px 6px #ccc;
     }
@@ -66,10 +69,13 @@
   <br><br>
   <button id="rollbutton">Roll Dice</button>
   <br><br>
-  <input class="enter" type="text" placeholder="enter guess here" disabled="true">
-  <button class="submit" disabled="true">enter guess</button>
+  <input id="entertext" type="text" placeholder="enter guess here">
+  <button id="submitguess">enter guess</button>
   <br><br><br><br>
-  <br><br>
+  <p id="resulttext">...</p>
+  <br><br><br><br>
+  <button id="rules">rules</button>
+  <br><br><br><br>
 </div>
 
 </body>

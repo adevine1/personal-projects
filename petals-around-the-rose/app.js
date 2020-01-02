@@ -1,9 +1,11 @@
 $(document).ready(function() {
   console.log("document ready");
+  let diceArray =[];
+  let t = 0;
 
   $("#rollbutton").click(function() {
-    let diceArray =[];
-    let t = 0;
+    diceArray = [];
+    t=0;
     for (let x=1; x<7; x++) {
       let randNum = (Math.floor(Math.random ()*6) + 1);
       diceArray.push (randNum);
@@ -16,7 +18,18 @@ $(document).ready(function() {
     for (let x=0; x<6; x++) {
       $(`#d${x+1}`).attr ("src", `assets/Dice-${diceArray[x]}.png`);
     }
-    //console.log (diceArray);
-    //console.log (t);
+    console.log (diceArray);
+    console.log (t);
    });
+
+  $("#submitguess").click (function () {
+    var str = $("#entertext").val();
+    if (str== t) {
+      console.log ("correct");
+      $("#resulttext").innerHTML = "correct";
+    }
+    else
+      console.log ("incorrect");
+  })
+
 });
