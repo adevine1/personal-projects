@@ -14,14 +14,9 @@ $(document).ready(function() {
         t += 4;
     }
 
-    $(".diceRoll").innerHTML= `
-    <img id="d1" src="assets/Dice-3.png" width="63" height="63">
-    <img id="d2" src="assets/Dice-3.png" width=63 height=63>
-    <img id="d3" src="assets/Dice-4.png" width=63 height=63>
-    <img id="d4" src="assets/Dice-2.png" width=63 height=63>
-    <img id="d5" src="assets/Dice-1.png" width=63 height=63>
-    <img id="d6" src="assets/Dice-6.png" width=63 height=63>
-    `
+    for (let x=0; x<6; x++) {
+      $(`#d${x+1}`).attr ("src", `assets/Dice-${diceArray[x]}.png`);
+    }
     console.log (diceArray);
     console.log (t);
    });
