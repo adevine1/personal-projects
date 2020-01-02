@@ -9,8 +9,8 @@ $(document).ready(function() {
     t=0;
     $("#entertext").val("");
     $("#resulttext").text("...")
-    var snd = new Audio("assets/dice-roll.mp3");
-    snd.play();
+    //var snd = new Audio("assets/dice-roll.mp3");
+    //snd.play();
 
     for (let x=1; x<7; x++) {
       let randNum = (Math.floor(Math.random ()*6) + 1);
