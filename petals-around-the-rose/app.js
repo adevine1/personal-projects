@@ -9,6 +9,8 @@ $(document).ready(function() {
     t=0;
     $("#entertext").val("");
     $("#resulttext").text("...")
+    var snd = new Audio("assets/dice-roll.mp3");
+    snd.play();
 
     for (let x=1; x<7; x++) {
       let randNum = (Math.floor(Math.random ()*6) + 1);
@@ -36,6 +38,8 @@ $(document).ready(function() {
       console.log ("incorrect");
       $("#resulttext").text ("Incorrect. The total is " + t + ".");
     }
+
+    // $("#history").append ("Roll: " + diceArray [0] + " " +    diceArray [1] + " "  + diceArray [2] + " "  +diceArray [3] + " "  + diceArray [4] + " " + diceArray [5] + "\n\n");
   })
 
   $("#rulesbutton").click (function () {
