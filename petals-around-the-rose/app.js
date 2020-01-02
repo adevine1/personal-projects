@@ -1,11 +1,15 @@
 $(document).ready(function() {
   console.log("document ready");
+  $("#rules").hide(0);
   let diceArray =[];
-  let t = 0;
+  let t = 6;
 
   $("#rollbutton").click(function() {
     diceArray = [];
     t=0;
+    $("#entertext").val("");
+    $("#resulttext").text("...")
+
     for (let x=1; x<7; x++) {
       let randNum = (Math.floor(Math.random ()*6) + 1);
       diceArray.push (randNum);
@@ -24,12 +28,18 @@ $(document).ready(function() {
 
   $("#submitguess").click (function () {
     var str = $("#entertext").val();
-    if (str== t) {
+    if (str == t) {
       console.log ("correct");
-      $("#resulttext").innerHTML = "correct";
+      $("#resulttext").text ("Correct! The total is " + t + ".");
     }
-    else
+    else {
       console.log ("incorrect");
+      $("#resulttext").text ("Incorrect. The total is " + t + ".");
+    }
+  })
+
+  $("#rulesbutton").click (function () {
+    $("#rules").toggle();
   })
 
 });
