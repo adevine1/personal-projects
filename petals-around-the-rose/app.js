@@ -2,7 +2,6 @@ $(document).ready(function() {
   console.log("document ready");
 
   $("#rollbutton").click(function() {
-    console.log("button pressed");
     let diceArray =[];
     let t = 0;
     for (let x=1; x<7; x++) {
@@ -17,7 +16,7 @@ $(document).ready(function() {
     for (let x=0; x<6; x++) {
       $(`#d${x+1}`).attr ("src", `assets/Dice-${diceArray[x]}.png`);
     }
-    console.log (diceArray);
-    console.log (t);
+    //console.log (diceArray);
+    //console.log (t);
    });
 });
