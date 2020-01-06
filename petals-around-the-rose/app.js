@@ -39,7 +39,9 @@ $(document).ready(function() {
       $("#resulttext").text ("Incorrect. The total is " + t + ".");
     }
 
-    // $("#history").append ("Roll: " + diceArray [0] + " " +    diceArray [1] + " "  + diceArray [2] + " "  +diceArray [3] + " "  + diceArray [4] + " " + diceArray [5] + "\n\n");
+
+    //highScoreString += `<tr><td> ${loadScores[key][1]} </td><td> ${loadScores[key][0]} </td><td>${loadScores[key][2]} </td></tr>`;
+
   })
 
   $("#rulesbutton").click (function () {
