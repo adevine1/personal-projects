@@ -11,7 +11,7 @@ function loadingSpinner () {
   quoteContainer.hidden=true;
 }
 
-//Hide Loading
+// Hide Loading
 function completeLoadingSpinner () {
   if (!loader.hidden) {
     quoteContainer.hidden = false;
@@ -46,7 +46,7 @@ async function getQuote () {
   }
 }
 
-//Tweet Quote
+// Tweet Quote
 function tweetQuote () {
   const quote = quoteText.innerText;
   const author = authorText.innerText;
